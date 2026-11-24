@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050711" />
+    <meta name="description" content="SOLARIS 3D — an interactive cinematic Solar System explorer." />
+    <title>SOLARIS 3D — Solar System Explorer</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="scene"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Solaris 3D home">
+          <span class="brand-mark">✦</span>
+          <span>SOLARIS<span class="brand-light"> 3D</span></span>
+        </a>
+        <div class="topbar-meta">
+          <span class="live-dot"></span>
+          <span>LIVE SIMULATION</span>
+          <span class="meta-divider"></span>
+          <span id="sim-date">DAY 001 · YEAR 0001</span>
+        </div>
+      </header>
+
+      <aside class="intro">
+        <p class="eyebrow">A JOURNEY THROUGH OUR COSMIC NEIGHBOURHOOD</p>
+        <h1>Explore the<br /><em>Solar System.</em></h1>
+        <p class="intro-copy">Nine worlds. One star. A universe of motion.</p>
+        <div class="intro-hint"><span class="hint-icon">◎</span> DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM</div>
+      </aside>
+
+      <section class="planet-card glass-panel" id="planet-card" aria-live="polite">
+        <button class="close-card" id="close-card" aria-label="Close planet information">×</button>
+        <div class="card-kicker" id="card-kicker">SELECTED WORLD</div>
+        <h2 id="planet-name">Earth</h2>
+        <p class="planet-subtitle" id="planet-subtitle">Our pale blue dot</p>
+        <div class="planet-facts">
+          <div><span class="fact-label">DISTANCE FROM SUN</span><strong id="fact-distance">1.00 AU</strong></div>
+          <div><span class="fact-label">ORBITAL PERIOD</span><strong id="fact-period">365.25 days</strong></div>
+          <div><span class="fact-label">DIAMETER</span><strong id="fact-diameter">12,742 km</strong></div>
+          <div><span class="fact-label">DAY LENGTH</span><strong id="fact-day">23.9 hours</strong></div>
+        </div>
+        <p class="planet-description" id="planet-description">Our home world, with liquid-water oceans and a protective atmosphere.</p>
+        <div class="card-footer"><span class="planet-color-dot" id="planet-dot"></span><span id="planet-type">TERRESTRIAL PLANET</span></div>
+      </section>
+
+      <div class="side-label">THE MILKY WAY · LOCAL SYSTEM</div>
+
+      <section class="control-dock glass-panel">
+        <div class="dock-top">
+          <div>
+            <p class="control-label">SIMULATION CONTROL</p>
+            <div class="playback-state"><span class="state-dot" id="state-dot"></span><strong id="state-text">RUNNING</strong></div>
+          </div>
+          <button class="icon-button" id="pause-button" title="Pause simulation" aria-label="Pause simulation">Ⅱ</button>
+        </div>
+        <div class="speed-row">
+          <span class="control-label">TIME SPEED</span>
+          <strong id="speed-value">1×</strong>
+        </div>
+        <div class="speed-presets" id="speed-presets">
+          <button class="speed-button active" data-speed="1">1×</button>
+          <button class="speed-button" data-speed="10">10×</button>
+          <button class="speed-button" data-speed="100">100×</button>
+          <button class="speed-button" data-speed="1000">1000×</button>
+        </div>
+        <div class="dock-divider"></div>
+        <div class="toggle-row">
+          <label for="orbits-toggle">Orbital paths</label>
+          <input id="orbits-toggle" type="checkbox" checked />
+        </div>
+        <div class="toggle-row">
+          <label for="labels-toggle">Planet labels</label>
+          <input id="labels-toggle" type="checkbox" checked />
+        </div>
+        <div class="dock-bottom">
+          <span>1 SIM YEAR = 12 SECONDS AT 1×</span>
+          <button id="reset-view" class="text-button">RESET VIEW ↗</button>
+        </div>
+      </section>
+
+      <nav class="planet-rail glass-panel" aria-label="Choose a planet">
+        <div class="rail-heading"><span>CELESTIAL BODIES</span><span>01 — 09</span></div>
+        <div class="rail-items" id="planet-rail"></div>
+      </nav>
+
+      <div class="bottom-note"><span>✦</span> BUILT FOR CURIOSITY <span class="bottom-separator">/</span> NOT TO SCALE</div>
+      <div class="loading-screen" id="loading-screen">
+        <div class="loader-orbit"><span></span></div>
+        <p>PREPARING YOUR UNIVERSE</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
